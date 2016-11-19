@@ -3,8 +3,10 @@
  * Some basic testing you can run in the browser
  */
 require_once 'Chicken.class.php';
+require_once 'Cat.class.php';
 
 $Chicken = new Chicken("kaw kaaaaw", true, true);
+
 
 echo $Chicken->howAreYouDoing();
 echo "<br>";
