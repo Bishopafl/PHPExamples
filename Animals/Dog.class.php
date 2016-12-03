@@ -9,13 +9,31 @@ class Dog extends Animal{
   private $isSleeping     // Bool
   private $isEating       // Bool
   private $makingSound    // String
-  private $hasFleas       // Int
+  private $numberOfFleas       // Int
   const DEFAULT_START_FLEAS = 0;
   const DEFAULT_ADD_FLEAS = 10;
   const DEFAULT_KILLED_FLEAS = rand(0,100);
 
   // Params for parent are optional since the parent class will set them if they are not sent in or are sent incorrectly
-  // We will assume child class (Chicken) has params that are sent in, will do some error handeling if they are not
+  // We will assume child class (Dog) has params that are sent in, will do some error handeling if they are not
+
+  public function __construct($isSleeping, $isEating, $makingSound, $hasFleas, $name=false, $healthLevel=false, $weight=false){
+    parent::__construct($name, $healthLevel, $weight);
+
+    // Set the Dog up... handle any inproper inputs for each variables
+    try{
+      $this->setIsSleeping($isSleeping);
+      $this->setIsEating($isEating);
+      $this->setMakingSound($makingSound);
+      $this->setHasFleas($numberOfFleas);
+      $this->setStartFleas(self::DEFAULT_START_FLEAS);
+    } catch (Exception $ex){
+      die();
+    }
+  }
+
+  
+
 
 }
 
