@@ -1,19 +1,19 @@
 <?php
-/* @author Mike Parda
- * Chicken class for creating new chickens, child to Animal class
+/* @author Adam Lopez
+ * Dog class for creating more fleas, child to Animal class
  */
 require_once  __DIR__.DIRECTORY_SEPARATOR.'Animal.class.php';
 
-class Cat extends Animal
+class Dog extends Animal
 {
     // Private class variables because these only apply to this class and we do not want them changed manually when the class is used
     private $sound;          // String
     private $isSleeping; //$isFreeRange;    // Bool
     private $isEating //$isHappy;        // Bool
-    private $maxKittens;        // Int
-    // const DEFAULT_START_KITTENS = 0;
-    // const DEFAULT_ADD_KITTENS = 6;
-    // const DEFAULT_SELL_KITTENS = 2;
+    private $minBones;        // Int
+    const DEFAULT_START_FLEAS = 5;
+    const DEFAULT_ADD_FLEAS = 10;
+    const DEFAULT_DEAD_FLEAS = 2;
 
     // Params for parent are optional since the parent class will set them if they are not sent in or are sent incorrectly
     // We will assume child class (Chicken) has params that are sent in, will do some error handeling if they are not
@@ -26,9 +26,9 @@ class Cat extends Animal
            $this->setSound($sound);
            $this->setIsSleeping($sleeping);
            $this->setIsEating($eating);
-           $this->setMaxKittens(self::DEFAULT_START_KITTENS);
+           $this->setMaxKittens(self::DEFAULT_START_FLEAS);
         } catch (Exception $ex) {
-            echo 'Exception thrown in class Cat with message: ' . $ex->getMessage();
+            echo 'Exception thrown in class Dog with message: ' . $ex->getMessage();
             die();
         }
     }
@@ -62,12 +62,12 @@ class Cat extends Animal
         }
     }
 
-    private function setMaxKittens($maxKittens)
+    private function setMaxKittens($minBones)
     {
-        if(gettype($maxKittens) == "integer") {
-            $this->maxKittens = $maxKittens;
+        if(gettype($minBones) == "integer") {
+            $this->minBones = $minBones;
         } else {
-            throw new Exception("Max kittens variable must be an integer, type of " . gettype($eggCount) . " was sent in.");
+            throw new Exception("Min bones variable must be an integer, type of " . gettype($eggCount) . " was sent in.");
         }
     }
 
