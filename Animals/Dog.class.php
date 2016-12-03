@@ -32,7 +32,16 @@ class Dog extends Animal{
     }
   }
 
-  
+  // Generic and boring setters and getters for the Dog class
+  // Setters (private so that they cannot be called in the code, they must be changed with certain public methods of this class)
+  private function setIsSleeping($isSleeping){
+    if(gettype($isSleeping) == "boolean"){
+      $this->isSleeping = $isSleeping;
+    } else {
+      throw new Exception("If the ")
+    }
+  }
+
 
 
 }
